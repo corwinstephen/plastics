@@ -48,7 +48,7 @@ Culture, meaning, ideology, complexity.
 <div class="entry entry--episode">
   {% if episode.image %}
   <a class="entry__thumb" href="{{ episode.link }}">
-    <img src="{{ episode.image }}" alt="" />
+    <img src="{{ episode.image }}" alt="" width="112" height="112" />
   </a>
   {% endif %}
   <div class="entry__body">

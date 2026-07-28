@@ -27,10 +27,10 @@ img { max-width: 100%; display: block; margin: 0; }
 
 audio { display: block; width: 100%; max-width: 100%; margin: 1rem 0 0; }
 
-.entry { display: flex; gap: 1.25rem; align-items: flex-start; margin: 2.5rem 0; }
+.entry { display: flex; flex-wrap: nowrap; gap: 1.25rem; align-items: flex-start; margin: 2.5rem 0; }
 
-.entry__thumb { flex: 0 0 7rem; width: 7rem; height: 7rem; overflow: hidden; }
-.entry__thumb img { width: 100%; height: 100%; object-fit: cover; margin: 0; display: block; }
+.entry__thumb { box-sizing: border-box; flex: 0 0 7rem; width: 7rem; min-width: 7rem; max-width: 7rem; height: 7rem; overflow: hidden; }
+.entry__thumb img { width: 7rem; height: 7rem; max-width: none; object-fit: cover; margin: 0; display: block; }
 
 .entry__body { flex: 1 1 auto; min-width: 0; }
 .entry__body h3 { margin-top: 0; margin-bottom: 0.4rem; }
