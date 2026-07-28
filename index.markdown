@@ -31,6 +31,20 @@ Culture, meaning, ideology, complexity.
     {% assign post_url = parts[2] %}
     {% for post in site.posts %}
       {% if post.url == post_url %}
+        {% if post.kind == "note" %}
+          {% assign note_id = post.slug | split: "-" | last %}
+          {% include recycling-symbol.html id=note_id %}
+<div class="entry entry--note">
+  <p class="entry__meta">
+    {{ post.date | date: site.theme_config.date_format }}
+    ·
+    <a class="entry__recycle" href="{{ post.url | relative_url }}" aria-label="Open note">{{ recycling_symbol }}</a>
+  </p>
+  <div class="entry__note-body">
+    {{ post.content }}
+  </div>
+</div>
+        {% else %}
 <div class="entry entry--post">
   <div class="entry__body">
     <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
@@ -40,6 +54,7 @@ Culture, meaning, ideology, complexity.
     {% endif %}
   </div>
 </div>
+        {% endif %}
       {% endif %}
     {% endfor %}
   {% else %}
@@ -60,3 +75,5 @@ Culture, meaning, ideology, complexity.
 </div>
   {% endif %}
 {% endfor %}
+
+<div class="feed-clear"></div>

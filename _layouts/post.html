@@ -7,10 +7,15 @@ layout: default
 </p>
 
 <article class="post">
+  {% if page.kind == "note" %}
+  {% include recycling-symbol.html %}
+  <p class="post__meta">{{ page.date | date: site.theme_config.date_format }} · <span class="entry__recycle">{{ recycling_symbol }}</span></p>
+  {% else %}
   <h1>{{ page.title }}</h1>
   <p class="post__meta">{{ page.date | date: site.theme_config.date_format }}</p>
   {% if page.subtitle %}
   <p class="post__subtitle">{{ page.subtitle }}</p>
+  {% endif %}
   {% endif %}
 
   <div class="post__body">
