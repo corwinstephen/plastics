@@ -91,14 +91,14 @@ audio {
   margin: 1rem 0 0;
 }
 
-.episode {
+.entry {
   display: flex;
   gap: 1.25rem;
   align-items: flex-start;
   margin: 2.5rem 0;
 }
 
-.episode__thumb {
+.entry__thumb {
   flex: 0 0 7rem;
   width: 7rem;
   height: 7rem;
@@ -113,7 +113,7 @@ audio {
   }
 }
 
-.episode__body {
+.entry__body {
   flex: 1 1 auto;
   min-width: 0;
 
@@ -127,19 +127,13 @@ audio {
   }
 }
 
-.episode__meta {
-  font-size: 0.9rem;
-}
-
+.entry__meta,
 .post__meta,
-.post__subtitle,
-.post-list__meta,
-.post-list__subtitle {
+.post__subtitle {
   font-size: 0.9rem;
 }
 
-.post__subtitle,
-.post-list__subtitle {
+.post__subtitle {
   margin: 0.4rem 0 0;
 }
 
@@ -153,28 +147,4 @@ audio {
   img {
     margin: 1rem 0;
   }
-}
-
-.post__canonical {
-  margin-top: 3rem;
-  font-size: 0.9rem;
-}
-
-.post-list {
-  list-style: none;
-  padding: 0;
-  margin: 2rem 0 0;
-}
-
-.post-list__item {
-  margin: 0 0 1.5rem;
-}
-
-.post-list__meta {
-  display: block;
-  margin-top: 0.25rem;
-}
-
-.post-list__empty {
-  margin-top: 2rem;
 }

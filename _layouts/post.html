@@ -2,6 +2,10 @@
 layout: default
 ---
 
+<p class="post__back">
+  <a href="{{ "/" | relative_url }}">Back</a>
+</p>
+
 <article class="post">
   <h1>{{ page.title }}</h1>
   <p class="post__meta">{{ page.date | date: site.theme_config.date_format }}</p>
@@ -12,10 +16,4 @@ layout: default
   <div class="post__body">
     {{ content }}
   </div>
-
-  {% if page.canonical %}
-  <p class="post__canonical">
-    <a href="{{ page.canonical }}">Originally on Substack</a>
-  </p>
-  {% endif %}
 </article>
