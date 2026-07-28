@@ -7,7 +7,7 @@ title: Plastics
 
 Culture, meaning, ideology, complexity.
 
-[Spotify](https://open.spotify.com/show/6mFcaEBDzAQcGklB9cWJCJ?si=6d84b2ef525248f5) [YouTube](https://www.youtube.com/@plasticspod) [Apple](https://podcasts.apple.com/us/podcast/plastics/id1725599105) [RSS](https://anchor.fm/s/f0ad9940/podcast/rss)
+[Writing](/writing/) [Spotify](https://open.spotify.com/show/6mFcaEBDzAQcGklB9cWJCJ?si=6d84b2ef525248f5) [YouTube](https://www.youtube.com/@plasticspod) [Apple](https://podcasts.apple.com/us/podcast/plastics/id1725599105) [RSS](https://anchor.fm/s/f0ad9940/podcast/rss)
 
 {% for episode in site.data.plastics %}
 

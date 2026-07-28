@@ -130,3 +130,51 @@ audio {
 .episode__meta {
   font-size: 0.9rem;
 }
+
+.post__meta,
+.post__subtitle,
+.post-list__meta,
+.post-list__subtitle {
+  font-size: 0.9rem;
+}
+
+.post__subtitle,
+.post-list__subtitle {
+  margin: 0.4rem 0 0;
+}
+
+.post__body {
+  margin-top: 2rem;
+
+  > :first-child {
+    margin-top: 0;
+  }
+
+  img {
+    margin: 1rem 0;
+  }
+}
+
+.post__canonical {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+}
+
+.post-list__item {
+  margin: 0 0 1.5rem;
+}
+
+.post-list__meta {
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.post-list__empty {
+  margin-top: 2rem;
+}
