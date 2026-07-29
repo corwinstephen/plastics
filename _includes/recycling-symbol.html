@@ -1,8 +1,0 @@
-{% assign recycling_symbols = "♲,♳,♴,♵,♶,♷,♸,♹,♺,♻,♼,♽" | split: "," %}
-{% if include.id %}
-  {% assign recycling_id = include.id %}
-{% else %}
-  {% assign recycling_id = page.slug | split: "-" | last %}
-{% endif %}
-{% assign recycling_index = recycling_id | modulo: recycling_symbols.size %}
-{% assign recycling_symbol = recycling_symbols[recycling_index] %}
