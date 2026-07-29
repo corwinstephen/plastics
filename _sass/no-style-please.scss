@@ -89,6 +89,26 @@ audio {
   width: 100%;
   max-width: 100%;
   margin: 1rem 0 0;
+  color: black;
+  accent-color: black;
+  background: transparent;
+  color-scheme: light;
+}
+
+audio::-webkit-media-controls-enclosure {
+  background: transparent;
+  border-radius: 0;
+}
+
+audio::-webkit-media-controls-panel {
+  background: white;
+  color: black;
+}
+
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+  color: black;
+  text-shadow: none;
 }
 
 .entry {
