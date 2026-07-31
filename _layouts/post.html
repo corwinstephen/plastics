@@ -2,18 +2,31 @@
 layout: default
 ---
 
-<p class="post__back">
-  <a href="{{ "/" | relative_url }}">Back</a>
-</p>
+<div class="post-column">
+  <p class="post__back">
+    <a href="{{ "/" | relative_url }}">Back</a>
+  </p>
 
-<article class="post">
-  <h1>{{ page.title }}</h1>
-  <p class="post__meta">{{ page.date | date: site.theme_config.date_format }}</p>
-  {% if page.subtitle %}
-  <p class="post__subtitle">{{ page.subtitle }}</p>
-  {% endif %}
+  <article class="post">
+    <h1>{{ page.title }}</h1>
+    <p class="post__meta">{{ page.date | date: site.theme_config.date_format }}</p>
+    {% if page.subtitle %}
+    <p class="post__subtitle">{{ page.subtitle }}</p>
+    {% endif %}
 
-  <div class="post__body">
-    {{ content }}
-  </div>
-</article>
+    <div class="post__body">
+      {{ content }}
+    </div>
+  </article>
+
+  <p class="post__end">. . .</p>
+
+  <form
+    action="https://plasticspod.substack.com/api/v1/free"
+    method="post"
+    target="_blank"
+  >
+    <input type="email" name="email" placeholder="Email" required autocomplete="email" />
+    <button type="submit">Subscribe</button>
+  </form>
+</div>
