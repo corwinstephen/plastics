@@ -80,6 +80,7 @@ a {
 
 img {
   max-width: 100%;
+  height: auto;
   display: block;
   margin: 0;
 }
@@ -158,6 +159,17 @@ audio::-webkit-media-controls-time-remaining-display {
   font-size: 0.9rem;
 }
 
+.post-column {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+.post__back {
+  margin: 0 0 1.5rem;
+}
+
 .post__subtitle {
   margin: 0.4rem 0 0;
 }
@@ -170,6 +182,17 @@ audio::-webkit-media-controls-time-remaining-display {
   }
 
   img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
     margin: 1rem 0;
   }
+
+  .image-link-expand {
+    display: none;
+  }
+}
+
+.post__end {
+  margin: 3rem 0 2.5rem;
 }

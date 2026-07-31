@@ -35,7 +35,7 @@ Complexity and culture.
 <div class="entry entry--post">
   <div class="entry__body">
     <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
-    <p class="entry__meta">{{ post.date | date: site.theme_config.date_format }} · Writing</p>
+    <p class="entry__meta">{{ post.date | date: site.theme_config.date_format }}</p>
     {% if post.subtitle %}
     <p>{{ post.subtitle }}</p>
     {% endif %}

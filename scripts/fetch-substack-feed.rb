@@ -88,6 +88,70 @@ def write_post(path, front, body)
   File.write(path, "#{front.to_yaml}---\n\n#{body.strip}\n")
 end
 
+def sanitize_body_html(html)
+  html = html.to_s
+
+  # Substack @mentions are empty spans; recover the name/url from data-attrs.
+  html = html.gsub(%r{<span\b[^>]*\bclass="[^"]*\bmention-wrap\b[^"]*"[^>]*>\s*</span>}i) do |span|
+    attrs_match = span.match(/\bdata-attrs="([^"]*)"/i)
+    next "" unless attrs_match
+
+    attrs = JSON.parse(CGI.unescapeHTML(attrs_match[1]))
+    name = attrs["name"].to_s.strip
+    next "" if name.empty?
+
+    url = attrs["url"].to_s.strip
+    url = "https://substack.com/profile/#{attrs['id']}" if url.empty? && attrs["id"]
+
+    if url.empty?
+      CGI.escapeHTML(name)
+    else
+      %(<a href="#{CGI.escapeHTML(url)}">#{CGI.escapeHTML(name)}</a>)
+    end
+  rescue JSON::ParserError
+    ""
+  end
+
+  # Drop subscribe CTAs that only work on Substack (balanced removal).
+  remove_divs_with_class(html, "subscription-widget-wrap")
+end
+
+def remove_divs_with_class(html, class_name)
+  result = +""
+  i = 0
+  opener = /<div\b[^>]*\bclass="[^"]*\b#{Regexp.escape(class_name)}\b[^"]*"[^>]*>/i
+
+  while i < html.length
+    match = opener.match(html, i)
+    unless match
+      result << html[i..]
+      break
+    end
+
+    result << html[i...match.begin(0)]
+    depth = 1
+    pos = match.end(0)
+
+    while pos < html.length && depth.positive?
+      open_at = html.index(/<div\b/i, pos)
+      close_at = html.index(%r{</div>}i, pos)
+      break unless close_at
+
+      if open_at && open_at < close_at
+        depth += 1
+        pos = open_at + 4
+      else
+        depth -= 1
+        pos = close_at + 6
+      end
+    end
+
+    i = pos
+  end
+
+  result
+end
+
 def fetch_archive
   data = JSON.parse(fetch(ARCHIVE_URL))
   raise "Unexpected archive payload" unless data.is_a?(Array)
@@ -121,7 +185,7 @@ fetch_archive.each do |entry|
   title = post["title"].to_s.strip
   next if title.empty?
 
-  body = post["body_html"].to_s.strip
+  body = sanitize_body_html(post["body_html"]).strip
   next if body.empty?
 
   post_date = post["post_date"] || entry["post_date"]

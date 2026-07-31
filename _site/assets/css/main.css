@@ -23,7 +23,7 @@ a { color: black; }
 
 .w { box-sizing: border-box; width: 100%; min-height: 100vh; margin: 0; padding: 2rem; }
 
-img { max-width: 100%; display: block; margin: 0; }
+img { max-width: 100%; height: auto; display: block; margin: 0; }
 
 audio { display: block; width: 100%; max-width: 100%; margin: 1rem 0 0; color: black; accent-color: black; background: transparent; color-scheme: light; }
 
@@ -44,8 +44,15 @@ audio::-webkit-media-controls-current-time-display, audio::-webkit-media-control
 
 .entry__meta, .post__meta, .post__subtitle { font-size: 0.9rem; }
 
+.post-column { box-sizing: border-box; width: 100%; max-width: 28rem; margin: 0 auto; }
+
+.post__back { margin: 0 0 1.5rem; }
+
 .post__subtitle { margin: 0.4rem 0 0; }
 
 .post__body { margin-top: 2rem; }
 .post__body > :first-child { margin-top: 0; }
-.post__body img { margin: 1rem 0; }
+.post__body img { max-width: 100%; width: auto; height: auto; margin: 1rem 0; }
+.post__body .image-link-expand { display: none; }
+
+.post__end { margin: 3rem 0 2.5rem; }
